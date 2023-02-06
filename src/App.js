@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import { getUserToken } from "./services/spotify.js";
