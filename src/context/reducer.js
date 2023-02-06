@@ -1,3 +1,5 @@
+import dispatchAction from "../utils/dispatchAction";
+
 export const initialState = {
 	user: null,
 	playlists: [],
@@ -9,12 +11,12 @@ export const initialState = {
 const reducer = (state, action) => {
 	console.log(action);
 	switch (action.type) {
-		case "SET_USER":
+		case dispatchAction.SET_USER:
 			return {
 				...state,
 				user: action.user,
 			};
-		case "SET_TOKEN":
+		case dispatchAction.SET_TOKEN:
 			return {
 				...state,
 				token: action.token,

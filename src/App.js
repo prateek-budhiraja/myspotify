@@ -4,11 +4,12 @@ import Login from "./components/Login";
 import { getUserToken } from "./services/spotify.js";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useStateValue } from "./context/AppContext";
+import dispatchAction from "./utils/dispatchAction";
 
 const spotify = new SpotifyWebApi();
 
 function App() {
-	const [{ user, token }, dispatch] = useStateValue();
+	const [{ token }, dispatch] = useStateValue();
 
 	useEffect(() => {
 		const hash = getUserToken();
@@ -16,22 +17,19 @@ function App() {
 		const _token = hash.access_token;
 		if (_token) {
 			dispatch({
-				type: "SET_TOKEN",
+				type: dispatchAction.SET_TOKEN,
 				token: _token,
 			});
 
-			spotify.setAccessToken(token);
+			spotify.setAccessToken(_token);
 			spotify.getMe().then((user) => {
 				dispatch({
-					type: "SET_USER",
+					type: dispatchAction.SET_USER,
 					user,
 				});
 			});
 		}
 	}, []);
-
-	console.log("👤", user);
-	console.log("👽", token);
 
 	return <>{token ? <Dashboard /> : <Login />}</>;
 }
