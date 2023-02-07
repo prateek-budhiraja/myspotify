@@ -9,7 +9,7 @@ function SidebarItem({ title, Icon }) {
 					<h4 className="h-[35px] font-semibold ">{title}</h4>
 				</div>
 			) : (
-				<p className="h-[35px] hover:text-white cursor-pointer text-gray-500">
+				<p className="px-2 mt-3 hover:text-white cursor-pointer text-gray-500">
 					{title}
 				</p>
 			)}
