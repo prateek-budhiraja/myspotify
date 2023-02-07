@@ -3,9 +3,9 @@ import dispatchAction from "../utils/dispatchAction";
 export const initialState = {
 	user: null,
 	playlists: [],
-	playing: false,
-	item: null,
+	playlist: {},
 	token: null,
+	spotify: null,
 };
 
 const reducer = (state, action) => {
@@ -25,6 +25,12 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				playlists: action.playlists,
+			};
+
+		case dispatchAction.SET_SPOTIFY:
+			return {
+				...state,
+				spotify: action.spotify,
 			};
 		default:
 			return state;

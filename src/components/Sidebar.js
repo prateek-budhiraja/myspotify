@@ -6,7 +6,7 @@ import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import { useStateValue } from "../context/AppContext";
 
 function Sidebar() {
-	const [{ playlists }, dispatch] = useStateValue();
+	const [{ playlists }] = useStateValue();
 
 	return (
 		<div className="col-span-2 bg-black h-[100dvh] px-2">
@@ -22,7 +22,11 @@ function Sidebar() {
 			<hr className="w-[90%] mx-auto mt-3 text-gray-500" />
 
 			{playlists?.items?.map((playlist) => (
-				<SidebarItem title={playlist.name} key={playlist.id} />
+				<SidebarItem
+					title={playlist.name}
+					key={playlist.id}
+					playlistId={playlist.id}
+				/>
 			))}
 		</div>
 	);

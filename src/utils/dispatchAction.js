@@ -2,6 +2,8 @@ const dispatchAction = {
 	SET_USER: "SET_USER",
 	SET_TOKEN: "SET_TOKEN",
 	SET_PLAYLISTS: "SET_PLAYLISTS",
+	SET_SPOTIFY: "SET_SPOTIFY",
+	SET_CURR_PLAYLIST: "SET_CURR_PLAYLIST",
 };
 
 export default dispatchAction;
