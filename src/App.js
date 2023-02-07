@@ -28,6 +28,13 @@ function App() {
 					user,
 				});
 			});
+
+			spotify.getUserPlaylists().then((playlists) => {
+				dispatch({
+					type: dispatchAction.SET_PLAYLISTS,
+					playlists,
+				});
+			});
 		}
 	}, []);
 
