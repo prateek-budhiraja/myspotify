@@ -10,7 +10,7 @@ function Dashboard({ defaultPlaylist, setDefaultPlaylist }) {
 				<Sidebar setDefaultPlaylist={setDefaultPlaylist} />
 				<Body defaultPlaylist={defaultPlaylist} />
 			</div>
-			<Footer />
+			<Footer song={defaultPlaylist?.tracks?.items[0]} />
 		</>
 	);
 }

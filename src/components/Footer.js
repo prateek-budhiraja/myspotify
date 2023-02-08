@@ -8,18 +8,23 @@ import { Slider, Stack } from "@mui/material";
 import { VolumeUp } from "@mui/icons-material";
 import DevicesOtherIcon from "@mui/icons-material/DevicesOther";
 
-function Footer() {
+function Footer({ song }) {
+	console.log(song);
 	return (
 		<div className="flex items-center fixed bottom-0 left-0 h-[75px] w-[100dvw] bg-sblack text-white justify-between">
 			<div className="flex-auto flex w-[30%] px-4 items-center">
 				<img
 					className="w-[50px] h-[50px] object-cover mr-3"
-					src="https://jahnavimusic.com/jm/wp-content/uploads/2021/01/govinda-album-cover-min.jpg"
+					src={song ? song?.track?.album?.images[0].url : ""}
 					alt=""
 				/>
 				<div>
-					<h4 className="leading-3">Song name</h4>
-					<span className="text-xs">Singer</span>
+					<h4 className="leading-3">
+						{song ? song?.track?.name : "Song name"}
+					</h4>
+					<span className="text-xs">
+						{song ? song?.track?.artists[0].name : "Singer"}
+					</span>
 				</div>
 			</div>
 			<div className="flex-auto w-[40%]">
