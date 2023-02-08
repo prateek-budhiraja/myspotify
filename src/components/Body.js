@@ -32,7 +32,7 @@ function Body({ defaultPlaylist }) {
 					</div>
 					<hr className="mt-1 mb-4 mx-auto" />
 					{defaultPlaylist?.tracks?.items.map((song) => (
-						<Song song={song} />
+						<Song song={song} key={song?.track?.id} />
 					))}
 				</>
 			) : (

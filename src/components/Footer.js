@@ -9,7 +9,6 @@ import { VolumeUp } from "@mui/icons-material";
 import DevicesOtherIcon from "@mui/icons-material/DevicesOther";
 
 function Footer({ song }) {
-	console.log(song);
 	return (
 		<div className="flex items-center fixed bottom-0 left-0 h-[75px] w-[100dvw] bg-sblack text-white justify-between">
 			<div className="flex-auto flex w-[30%] px-4 items-center">
