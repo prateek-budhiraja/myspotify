@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import { getUserToken } from "./services/spotify.js";
@@ -9,7 +9,8 @@ import dispatchAction from "./utils/dispatchAction";
 const spotify = new SpotifyWebApi();
 
 function App() {
-	const [{ token }, dispatch] = useStateValue();
+	const [defaultPlaylist, setDefaultPlaylist] = useState(null);
+	const [{ token, playlists }, dispatch] = useStateValue();
 
 	useEffect(() => {
 		const hash = getUserToken();
@@ -34,6 +35,9 @@ function App() {
 			});
 
 			spotify.getUserPlaylists().then((playlists) => {
+				spotify.getPlaylist(playlists.items[0].id).then((response) => {
+					setDefaultPlaylist(response);
+				});
 				dispatch({
 					type: dispatchAction.SET_PLAYLISTS,
 					playlists,
@@ -42,7 +46,18 @@ function App() {
 		}
 	}, []);
 
-	return <>{token ? <Dashboard /> : <Login />}</>;
+	return (
+		<>
+			{token ? (
+				<Dashboard
+					defaultPlaylist={defaultPlaylist}
+					setDefaultPlaylist={setDefaultPlaylist}
+				/>
+			) : (
+				<Login />
+			)}
+		</>
+	);
 }
 
 export default App;

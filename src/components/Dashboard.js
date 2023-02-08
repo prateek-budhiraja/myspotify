@@ -3,12 +3,12 @@ import Sidebar from "./Sidebar";
 import Body from "./Body";
 import Footer from "./Footer";
 
-function Dashboard() {
+function Dashboard({ defaultPlaylist, setDefaultPlaylist }) {
 	return (
 		<>
 			<div className="grid grid-cols-10">
-				<Sidebar />
-				<Body />
+				<Sidebar setDefaultPlaylist={setDefaultPlaylist} />
+				<Body defaultPlaylist={defaultPlaylist} />
 			</div>
 			<Footer />
 		</>

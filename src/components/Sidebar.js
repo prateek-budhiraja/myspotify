@@ -5,11 +5,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import { useStateValue } from "../context/AppContext";
 
-function Sidebar() {
+function Sidebar({ setDefaultPlaylist }) {
 	const [{ playlists }] = useStateValue();
 
 	return (
-		<div className="col-span-2 bg-black h-[100dvh] px-2">
+		<div className="col-span-2 bg-black min-h-[100dvh] px-2 ">
 			<img
 				className="h-[100px] py-4 cursor-pointer"
 				src="images/spotify.jpg"
@@ -26,6 +26,7 @@ function Sidebar() {
 					title={playlist.name}
 					key={playlist.id}
 					playlistId={playlist.id}
+					setDefaultPlaylist={setDefaultPlaylist}
 				/>
 			))}
 		</div>

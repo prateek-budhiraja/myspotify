@@ -2,15 +2,11 @@ import React from "react";
 import { useStateValue } from "../context/AppContext";
 import dispatchAction from "../utils/dispatchAction";
 
-function SidebarItem({ title, Icon, playlistId }) {
+function SidebarItem({ title, Icon, playlistId, setDefaultPlaylist }) {
 	const [{ spotify }, dispatch] = useStateValue();
 	const handleSetPlaylist = () => {
 		spotify.getPlaylist(playlistId).then((response) => {
-			console.log(response);
-			dispatch({
-				type: dispatchAction.SET_CURR_PLAYLIST,
-				playlist: response,
-			});
+			setDefaultPlaylist(response);
 		});
 	};
 	return (
@@ -22,7 +18,7 @@ function SidebarItem({ title, Icon, playlistId }) {
 				</div>
 			) : (
 				<p
-					className="px-2 mt-3 hover:text-white cursor-pointer text-gray-500"
+					className="w-[100%] text-clip h-[25px] overflow-hidden px-2 mt-3 hover:text-white cursor-pointer text-gray-500"
 					onClick={handleSetPlaylist}
 				>
 					{title}
