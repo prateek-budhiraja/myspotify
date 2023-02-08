@@ -16,7 +16,7 @@ function Header() {
 				/>
 			</div>
 			<div className="flex items-center gap-4 min-w-[200px]">
-				<Avatar src={user?.images[0].url} alt="profile" />
+				<Avatar src={user?.images[0]?.url} alt="profile" />
 				<h4 className="font-semibold">{user?.display_name}</h4>
 			</div>
 		</div>

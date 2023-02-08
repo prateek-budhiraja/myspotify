@@ -35,7 +35,7 @@ function App() {
 			});
 
 			spotify.getUserPlaylists().then((playlists) => {
-				spotify.getPlaylist(playlists.items[0].id).then((response) => {
+				spotify.getPlaylist(playlists?.items[0]?.id).then((response) => {
 					setDefaultPlaylist(response);
 				});
 				dispatch({
