@@ -22,7 +22,7 @@ spotifyAuthUrl += `?client_id=${clientId}`;
 spotifyAuthUrl += `&redirect_uri=${redirectUri}`;
 spotifyAuthUrl += `&scope=${scopes.join("%20")}`;
 spotifyAuthUrl += `&response_type=token`;
-spotifyAuthUrl += `&show_dialog=false`;
+spotifyAuthUrl += `&show_dialog=true`;
 
 /**
  * @description: returns user token after extracting it from the url
